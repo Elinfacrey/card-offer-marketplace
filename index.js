@@ -1,0 +1,1 @@
+export { CardOfferMarketplace } from './src/CardOfferMarketplace.js';
