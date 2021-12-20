@@ -11,6 +11,7 @@
     "!**/*.scss"
   ],
   "dependencies": {
+    "@bbva-web-components/bbva-button-default": "^5.9.17",
     "@bbva-web-components/bbva-core-lit-helpers": "^1.0.4",
     "@bbva-web-components/bbva-foundations-styles": "^2.3.5",
     "@bbva-web-components/bbva-list-offer": "^3.10.1",

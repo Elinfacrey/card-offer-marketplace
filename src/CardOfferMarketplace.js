@@ -4,6 +4,7 @@ import styles from './CardOfferMarketplace-styles.js';
 
 import "@bbva-web-components/bbva-list-offer/bbva-list-offer.js";
 import  "@bbva-web-components/bbva-web-card-product/bbva-web-card-product.js";
+import "@bbva-web-components/bbva-button-default/bbva-button-default.js";
 /**
 ![LitElement component](https://img.shields.io/badge/litElement-component-blue.svg)
 
@@ -59,12 +60,15 @@ export class CardOfferMarketplace extends LitElement {
     
   }
 
-  
+  Continuar(event) {
+    this.dispatchEvent(new CustomEvent('continue-clicked', { bubbles: true, composed: true}));
+    console.log("Probando evento continuar",event)
+  }
 
       
     
  
-   
+
     
   
 
@@ -78,10 +82,12 @@ export class CardOfferMarketplace extends LitElement {
       <div class="card-offer-list">
       ${this.items.map((i) => html `
      
-      <bbva-web-card-product variant="horizontal"  image="${i.imagen}" heading="${i.nombre}" preheading="Nuevo" subheading="cantidad : ${i.cantidad}" button-text="Comprar" link-text="Envìo gratis">
-       <br>
-       
-      </bbva-web-card-product><br>
+      <bbva-web-card-product variant="horizontal"  image="${i.imagen}" heading="${i.nombre}" preheading="Nuevo" button-text="Comprar" subheading="cantidad : ${i.cantidad}"  link-text="Envìo gratis" @button-click=${this.Continuar}>
+      </bbva-web-card-product>
+     
+      <br>
+      <br>
+      <br>
       `)} 
     
       </div>
