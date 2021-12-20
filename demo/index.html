@@ -29,27 +29,24 @@
     <bbva-core-demo-helper>
       <bbva-core-demo-case heading="Basic" description="Default specs">
         <template>
-          <card-offer-marketplace></card-offer-marketplace>
-          <script>
-            const ui = document.querySelector('card-offer-marketplace');
-            ui.cards = [
-             {
-              nombre : 'Consola Playstation 5 Con Lector De Discos Ps5',
-              precio : "4.799",
-              imagen : "./imgs/ps51.webp",
-            },
-            {
-              nombre : 'Bateria Recargable',
-              precio : "399.90",
-              imagen : "./imgs/ps52.webp",
-            },
-            {
-              nombre : 'Micro',
-              precio : "149.90",
-              imagen : "./imgs/ps53.webp",
+          <card-offer-marketplace id="demo"></card-offer-marketplace>
+       
+          
+          <script type="module">
+             document.addEventListener('WebComponentsReady', async () => {
+              let data = await fetch('./data/data.json').then((reponse) =>
+                reponse.json()
+              );
+              let demo = document.querySelector('#demo');
+              demo.items = data.items;
+              demo.nombre = data.items.nombre;
+              demo.imagen = data.items.imagen;
+              demo.cantidad = data.items.cantidad;
               
-            }  
-          ];
+           
+             
+            });
+        
           </script>
         </template>
       </bbva-core-demo-case>
